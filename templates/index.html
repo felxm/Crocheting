@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crochet Visualizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Welcome to the Crochet Visualizer</h1>
+
+    <h2>Upload Crochet Pattern File (JSON)</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="pattern_file" accept=".json" required>
+        <button type="submit">Visualize</button>
+    </form>
+
+    {% if error_message %}
+    <div style="color: red; margin-top: 20px;">
+        <h3>Error:</h3>
+        <pre>{{ error_message }}</pre>
+    </div>
+    {% endif %}
+
+    {% if result_data %}
+    <div style="margin-top: 20px;">
+        <h3>Processed Data:</h3>
+        <pre>{{ result_data }}</pre>
+    </div>
+    {% endif %}
+
+    <!-- Placeholder for future 3D visualization canvas -->
+    <div id="visualization-container" style="margin-top: 30px; width: 600px; height: 400px; border: 1px solid #ccc;">
+        <p style="text-align: center; padding-top: 20px;">3D visualization will appear here.</p>
+    </div>
+
+</body>
+</html>
