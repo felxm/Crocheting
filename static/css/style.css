@@ -45,7 +45,11 @@ pre {
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 
-#visualization-container {
-    background-color: #fff;
+#scene-container {
+    background-color: #fff; /* Default background, Three.js will draw over this */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    /* Ensure it has a size, already defined in HTML, but can be reinforced here */
+    /* width: 600px; */ /* Example, matches HTML inline style */
+    /* height: 400px; */ /* Example, matches HTML inline style */
+    position: relative; /* Useful if we add UI elements over the canvas */
 }

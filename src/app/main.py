@@ -42,22 +42,29 @@ def index():
 
                 parsed_pattern = parse_pattern(pattern_string)
                 coordinates = generate_shape_coordinates(parsed_pattern)
-
-                # Convert coordinates to a string for display (e.g., JSON string)
-                # Limiting the output for very large coordinate sets for display purposes
-                if len(coordinates) > 100: # Example limit
-                    result_data_str = f"Successfully generated {len(coordinates)} coordinates. (Displaying first 100)\n"
-                    result_data_str += json.dumps(coordinates[:100], indent=2)
-                    result_data_str += "\n..."
+                # Pass the full list of coordinates directly
+                result_data = coordinates
+                # For the <pre> tag display, we can still show a summary or limited version if needed,
+                # but the main thing is that `result_data` passed to template is the full list.
+                # Let's create a summary for the <pre> tag.
+                if len(coordinates) > 10:
+                    display_summary = f"Successfully generated {len(coordinates)} coordinates. First 10 shown below.\n"
+                    display_summary += json.dumps(coordinates[:10], indent=2)
+                    display_summary += "\n..."
                 else:
-                    result_data_str = json.dumps(coordinates, indent=2)
+                    display_summary = json.dumps(coordinates, indent=2)
+
 
             except ValueError as e:
                 error_message = f"Processing Error: {str(e)}"
+                display_summary = None # No summary if error
             except Exception as e:
                 error_message = f"An unexpected error occurred: {str(e)}"
+                display_summary = None # No summary if error
 
-        return render_template('index.html', error_message=error_message, result_data=result_data_str)
+        # Pass the full coordinates list as 'result_data' for JS
+        # Pass the 'display_summary' for the <pre> tag
+        return render_template('index.html', error_message=error_message, result_data=result_data, display_summary=display_summary)
 
     # For GET request
     return render_template('index.html')

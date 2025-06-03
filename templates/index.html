@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crochet Visualizer</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
     <h1>Welcome to the Crochet Visualizer</h1>
@@ -23,16 +24,36 @@
     {% endif %}
 
     {% if result_data %}
+    <script>
+        window.patternCoordinates = {{ result_data | tojson }};
+    </script>
     <div style="margin-top: 20px;">
-        <h3>Processed Data:</h3>
-        <pre>{{ result_data }}</pre>
+        <h3>Processed Data (Summary):</h3>
+        <pre>{{ display_summary }}</pre> {# display_summary is now used for the pre tag #}
+    </div>
+    {% else %}
+    {# If result_data is not present, but there might be a display_summary (e.g. from previous step, though unlikely here) #}
+    {# Or if we want to ensure patternCoordinates is defined even if null #}
+    <script>
+        window.patternCoordinates = null;
+    </script>
+    {% endif %}
+
+    {% if display_summary and not result_data %} {# Should not happen with current main.py logic but good for robustness #}
+    <div style="margin-top: 20px;">
+        <h3>Processed Data (Summary):</h3>
+        <pre>{{ display_summary }}</pre>
     </div>
     {% endif %}
 
-    <!-- Placeholder for future 3D visualization canvas -->
-    <div id="visualization-container" style="margin-top: 30px; width: 600px; height: 400px; border: 1px solid #ccc;">
-        <p style="text-align: center; padding-top: 20px;">3D visualization will appear here.</p>
+    <!-- Container for the 3D scene -->
+    <div id="scene-container" style="margin-top: 30px; width: 600px; height: 400px; border: 1px solid #ccc;">
+        {% if not result_data and not error_message and not display_summary %}
+        <p style="text-align: center; padding-top: 20px;">Upload a pattern file to see the 3D visualization.</p>
+        {% endif %}
+        {# JavaScript will replace this content if coordinates are valid, or manage placeholder #}
     </div>
 
+    <script src="{{ url_for('static', filename='js/main_3d.js') }}"></script>
 </body>
 </html>

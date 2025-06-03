@@ -1,0 +1,7 @@
+{
+  "patternName": "Single Stitch",
+  "stitchType": "singleCrochet",
+  "rounds": [
+    { "roundNumber": 1, "stitches": 1 }
+  ]
+}
