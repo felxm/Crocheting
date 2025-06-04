@@ -1,9 +1,0 @@
-{
-  "patternName": "Simple Circle",
-  "stitchType": "singleCrochet",
-  "rounds": [
-    { "roundNumber": 1, "stitches": 6 },
-    { "roundNumber": 2, "stitches": 12 },
-    { "roundNumber": 3, "stitches": 18 }
-  ]
-}

@@ -111,15 +111,32 @@ function init3DScene() {
         const centerZ = (minZ + maxZ) / 2;
         const objectSizeX = Math.max(maxX - minX, 0.1);
         const objectSizeY = Math.max(maxY - minY, 0.1);
+        const objectSizeZ = Math.max(maxZ - minZ, 0.1); // Include Z dimension for bounding box
 
-        const largerDim = Math.max(objectSizeX, objectSizeY);
-        const distance = (largerDim / 2) / Math.tan(THREE.MathUtils.degToRad(camera.fov / 2) / camera.aspect); // Simplified distance calculation
+        const largerDim = Math.max(objectSizeX, objectSizeY, objectSizeZ); // Use max of all three dimensions
 
-        // Position camera to view the object, slightly from top for flat things
-        camera.position.set(centerX, centerY + largerDim * 0.2 , centerZ + Math.max(distance * 1.2, 3)); // Min distance of 3 units
-        camera.lookAt(centerX, centerY, centerZ); // Look at the center of the object
+        // Heuristic for camera distance to fit the object.
+        // Fit the object's largest dimension within some fraction of the camera's FOV.
+        // A common formula: distance = (objectSize / 2) / tan(FOV / 2)
+        // We use camera.fov which is vertical FOV in radians after degToRad.
+        let distance = largerDim / (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov * 0.5)));
+
+        // Add a small buffer to the distance so object is not edge-to-edge.
+        distance *= 1.5; // Buffer factor, adjust as needed
+        distance = Math.max(distance, 3); // Ensure a minimum distance, e.g., for very small objects.
+
+        // Position camera: view from a slight angle for better 3D perception.
+        // Pull camera back along Z, and slightly up along Y.
+        // For Z, if object has depth (objectSizeZ > small_value), position further back.
+        // This is a simple heuristic; OrbitControls would be better for user adjustment.
+        const camX = centerX;
+        const camY = centerY + largerDim * 0.3; // Elevate camera slightly more based on object size
+        const camZ = centerZ + distance;       // Position camera along Z axis based on calculated distance
+
+        camera.position.set(camX, camY, camZ);
+        camera.lookAt(centerX, centerY, centerZ);
     } else {
-        // Default camera position if somehow no stitches were created despite having coordinates
+        // Default camera position if no stitches
         camera.position.set(0, 0, 10);
         camera.lookAt(0, 0, 0);
     }

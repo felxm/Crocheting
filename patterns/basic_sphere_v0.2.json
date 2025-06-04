@@ -1,0 +1,73 @@
+{
+  "patternName": "Basic Sphere v0.2",
+  "stitchType": "mixed",
+  "rounds": [
+    {
+      "roundNumber": 1,
+      "stitches": [
+        { "type": "sc" }, { "type": "sc" }, { "type": "sc" },
+        { "type": "sc" }, { "type": "sc" }, { "type": "sc" }
+      ]
+    },
+    {
+      "roundNumber": 2,
+      "stitches": [
+        { "type": "inc" }, { "type": "inc" }, { "type": "inc" },
+        { "type": "inc" }, { "type": "inc" }, { "type": "inc" }
+      ]
+    },
+    {
+      "roundNumber": 3,
+      "stitches": [
+        { "type": "sc" }, { "type": "inc" }, { "type": "sc" }, { "type": "inc" },
+        { "type": "sc" }, { "type": "inc" }, { "type": "sc" }, { "type": "inc" },
+        { "type": "sc" }, { "type": "inc" }, { "type": "sc" }, { "type": "inc" }
+      ]
+    },
+    {
+      "roundNumber": 4,
+      "stitches": [
+        { "type": "sc" }, { "type": "sc" }, { "type": "sc" }, { "type": "sc" },
+        { "type": "sc" }, { "type": "sc" }, { "type": "sc" }, { "type": "sc" },
+        { "type": "sc" }, { "type": "sc" }, { "type": "sc" }, { "type": "sc" },
+        { "type": "sc" }, { "type": "sc" }, { "type": "sc" }, { "type": "sc" },
+        { "type": "sc" }, { "type": "sc" }
+      ]
+    },
+    {
+      "roundNumber": 5,
+      "stitches": [
+        { "type": "sc" }, { "type": "sc" }, { "type": "sc" }, { "type": "sc" },
+        { "type": "sc" }, { "type": "sc" }, { "type": "sc" }, { "type": "sc" },
+        { "type": "sc" }, { "type": "sc" }, { "type": "sc" }, { "type": "sc" },
+        { "type": "sc" }, { "type": "sc" }, { "type": "sc" }, { "type": "sc" },
+        { "type": "sc" }, { "type": "sc" }
+      ]
+    },
+    {
+      "roundNumber": 6,
+      "stitches": [
+        { "type": "sc" }, { "type": "sc" }, { "type": "sc" }, { "type": "sc" },
+        { "type": "sc" }, { "type": "sc" }, { "type": "sc" }, { "type": "sc" },
+        { "type": "sc" }, { "type": "sc" }, { "type": "sc" }, { "type": "sc" },
+        { "type": "sc" }, { "type": "sc" }, { "type": "sc" }, { "type": "sc" },
+        { "type": "sc" }, { "type": "sc" }
+      ]
+    },
+    {
+      "roundNumber": 7,
+      "stitches": [
+        { "type": "sc" }, { "type": "dec" }, { "type": "sc" }, { "type": "dec" },
+        { "type": "sc" }, { "type": "dec" }, { "type": "sc" }, { "type": "dec" },
+        { "type": "sc" }, { "type": "dec" }, { "type": "sc" }, { "type": "dec" }
+      ]
+    },
+    {
+      "roundNumber": 8,
+      "stitches": [
+        { "type": "dec" }, { "type": "dec" }, { "type": "dec" },
+        { "type": "dec" }, { "type": "dec" }, { "type": "dec" }
+      ]
+    }
+  ]
+}

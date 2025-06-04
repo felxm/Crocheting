@@ -1,0 +1,20 @@
+{
+  "patternName": "Invalid Sphere v0.2",
+  "stitchType": "mixed",
+  "rounds": [
+    {
+      "roundNumber": 1,
+      "stitches": [
+        { "type": "sc" }, { "type": "sc" }, { "type": "sc" },
+        { "type": "sc" }, { "type": "sc" }, { "type": "sc" }
+      ]
+    },
+    {
+      "roundNumber": 2,
+      "stitches": [
+        { "type": "inc" }, { "type": "inc" }, { "type": "xyz" },
+        { "type": "inc" }, { "type": "inc" }, { "type": "inc" }
+      ]
+    }
+  ]
+}

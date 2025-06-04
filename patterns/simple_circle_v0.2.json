@@ -1,0 +1,39 @@
+{
+  "patternName": "Simple Circle v0.2",
+  "stitchType": "mixed",
+  "rounds": [
+    {
+      "roundNumber": 1,
+      "stitches": [
+        { "type": "sc" },
+        { "type": "sc" },
+        { "type": "sc" },
+        { "type": "sc" },
+        { "type": "sc" },
+        { "type": "sc" }
+      ]
+    },
+    {
+      "roundNumber": 2,
+      "stitches": [
+        { "type": "inc" },
+        { "type": "inc" },
+        { "type": "inc" },
+        { "type": "inc" },
+        { "type": "inc" },
+        { "type": "inc" }
+      ]
+    },
+    {
+      "roundNumber": 3,
+      "stitches": [
+        { "type": "sc" }, { "type": "inc" },
+        { "type": "sc" }, { "type": "inc" },
+        { "type": "sc" }, { "type": "inc" },
+        { "type": "sc" }, { "type": "inc" },
+        { "type": "sc" }, { "type": "inc" },
+        { "type": "sc" }, { "type": "inc" }
+      ]
+    }
+  ]
+}
